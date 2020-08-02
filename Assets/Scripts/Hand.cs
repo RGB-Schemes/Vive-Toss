@@ -121,7 +121,7 @@ public class Hand : MonoBehaviour {
         switch (mHandState)
         {
             case State.TOUCHING:
-                if (mTempJoint == null && mControllerDevice.GetPress(SteamVR_Controller.ButtonMask.Trigger))
+                if (mTempJoint == null && mControllerDevice.GetPress(SteamVR_Controller.ButtonMask.Grip))
                 {
                     mHeldObject.velocity = Vector3.zero;
                     mTempJoint = mHeldObject.gameObject.AddComponent<FixedJoint>();
@@ -134,7 +134,7 @@ public class Hand : MonoBehaviour {
                 }
                 break;
             case State.HOLDING:
-                if (mTempJoint != null && mControllerDevice.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
+                if (mTempJoint != null && mControllerDevice.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
                 {
                     Object.DestroyImmediate(mTempJoint);
                     mTempJoint = null;
